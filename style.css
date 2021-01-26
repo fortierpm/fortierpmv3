@@ -78,6 +78,11 @@ body {
 .foreground {
     object-fit: cover;
 }
+@media screen and (max-width: 600px) {
+    .foreground {
+        object-position: 80%;
+    }
+}
 .next-section {
     height: 100vh;
     background: white;
