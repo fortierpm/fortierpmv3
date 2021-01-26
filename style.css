@@ -20,7 +20,7 @@ body {
 }
 .intro-text {
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: 20%;
     /* transform: translate(0%, -50%); SCREWS UP PARALLAX POSITIONING */
     display: flex;
@@ -30,6 +30,7 @@ body {
 }
 @media screen and (max-width: 600px) {
     .intro-text {
+        top: 20%;
         left: 10%;
     }
 }
@@ -80,7 +81,7 @@ body {
 }
 @media screen and (max-width: 600px) {
     .foreground {
-        object-position: 80%;
+        object-position: 70%;
     }
 }
 .next-section {
