@@ -11,7 +11,9 @@
     });
 
     // Typing function
-    const phrases = ["photography", "web design", "graphics"];
+        /* "web design" contains (and requires for intened appearance) 
+        ** a hard en space; use hard en for all phrase spaces */
+    const phrases = ["photography", "web design", "graphics"];
     let phraseIndex = 0; // = first phrase
     let letterIndex = 0; // = first letter
     let currentText = "";
