@@ -1,4 +1,4 @@
-    // Parallax function
+    //* Parallax function
     function parallax(element, distance, speed) {
         const item = document.querySelector(element);
         item.style.transform = `translateY(${distance * speed}px)`;
@@ -10,9 +10,10 @@
         parallax(".intro-text", window.scrollY, -0.78);
     });
 
-    // Typing function
-        /* "web design" contains (and requires for intened appearance) 
-        ** a hard en space; use hard en for all phrase spaces */
+    //* Typing function
+        //! "web design" contains (and requires for intended appearance) 
+        //! a hard en space; use hard en for all phrase spaces
+        // TODO: create space to en-space converter
     const phrases = ["photography", "web design", "graphics"];
     let phraseIndex = 0; // = first phrase
     let letterIndex = 0; // = first letter
