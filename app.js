@@ -35,3 +35,14 @@
         }
         setTimeout(typing, 400);
     }());
+
+
+    //* Hide Intro Page Items on Scroll
+    const scrollDown = document.querySelector(".scroll-down");
+    window.addEventListener("scroll", () => {
+        if (window.scrollY !== 0) {
+            scrollDown.classList.add("scroll-hidden");
+        } else {
+            scrollDown.classList.remove("scroll-hidden");
+        }
+    });
