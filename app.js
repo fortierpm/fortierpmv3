@@ -40,7 +40,7 @@ let letters = "";
 //* Hide Intro Page Items on Scroll
 const scrollDown = document.querySelector(".scroll-down");
 window.addEventListener("scroll", () => {
-    if (window.scrollY !== 0) {
+    if (window.scrollY >= 10) {
         scrollDown.classList.add("scroll-hidden-left");
     } else {
         scrollDown.classList.remove("scroll-hidden-left");
