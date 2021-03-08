@@ -432,6 +432,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  overflow: hidden;
 }
 
 .slide-left,
@@ -473,6 +474,8 @@ body {
 
 .slide-left {
   left: 0;
+  pointer-events: none;
+  /* for setting style of newly loaded page */
 }
 
 .slide-right {
@@ -480,7 +483,6 @@ body {
 }
 
 .carousel-slide {
-  width: 100%;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -504,6 +506,7 @@ body {
           flex: 1;
   display: -ms-grid;
   display: grid;
+  grid-auto-rows: 1fr;
   grid-gap: 10px;
   position: relative;
   z-index: 1;
@@ -603,7 +606,13 @@ body {
   margin-left: auto;
 }
 
-#greeceItaly {
+#photosSlider {
+  width: 300%;
+  /* based on calc([n-slides] * 100%) */
+}
+
+#greeceItaly,
+#eastTrip {
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
   -ms-grid-rows: 1fr 1fr;

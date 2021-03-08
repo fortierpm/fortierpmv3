@@ -59,3 +59,47 @@ window.addEventListener("scroll", () => {
         contactJump.classList.remove("scroll-hidden-right");
     }
 });
+
+//* SLIDERS SECTION
+// Photos
+const photosSlider = document.querySelector("#photosSlider");
+const photosSlides = document.querySelectorAll("#photosSlider .carousel-slide");
+const photosSlideLeft = document.querySelector("#photosSlideLeft");
+const photosLeftSymbol = document.querySelector("#photosSlideLeft i");
+const photosSlideRight = document.querySelector("#photosSlideRight");
+const photosRightSymbol = document.querySelector("#photosSlideRight i");
+let photosCounter = 0;
+const photosSlideWidth = photosSlider.clientWidth / photosSlides.length;
+photosSlideLeft.addEventListener("click", () => {
+    if (photosCounter > 0) {
+        photosSlider.style.transition = "transform 0.4s ease-in-out";
+        photosCounter--;
+        photosSlider.style.transform = "translateX(" + (-photosSlideWidth * photosCounter) + "px)";
+    }
+});
+photosSlideRight.addEventListener("click", () => {
+    if (photosCounter < photosSlides.length - 1) {
+        photosSlider.style.transition = "transform 0.4s ease-in-out";
+        photosCounter++;
+        photosSlider.style.transform = "translateX(" + (-photosSlideWidth * photosCounter) + "px)";
+    }
+});
+photosSlider.addEventListener("transitionend", () => {
+    if (photosCounter != 0 && photosCounter != photosSlides.length - 1) {
+        photosLeftSymbol.classList.remove("inactive");
+        photosRightSymbol.classList.remove("inactive");
+        photosSlideLeft.style.pointerEvents = "auto";
+        photosSlideRight.style.pointerEvents = "auto";
+    } else if (photosCounter == 0) {
+        photosLeftSymbol.classList.add("inactive");
+        photosRightSymbol.classList.remove("inactive");
+        photosSlideLeft.style.pointerEvents = "none";
+        photosSlideRight.style.pointerEvents = "auto";
+    } else if (photosCounter == photosSlides.length - 1) {
+        photosRightSymbol.classList.add("inactive");
+        photosLeftSymbol.classList.remove("inactive");
+        photosSlideLeft.style.pointerEvents = "auto";
+        photosSlideRight.style.pointerEvents = "none";
+    }
+});
+
