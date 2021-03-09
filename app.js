@@ -102,4 +102,45 @@ photosSlider.addEventListener("transitionend", () => {
         photosSlideRight.style.pointerEvents = "none";
     }
 });
+// Graphics
+const graphicsSlider = document.querySelector("#graphicsSlider");
+const graphicsSlides = document.querySelectorAll("#graphicsSlider .carousel-slide");
+const graphicsSlideLeft = document.querySelector("#graphicsSlideLeft");
+const graphicsLeftSymbol = document.querySelector("#graphicsSlideLeft i");
+const graphicsSlideRight = document.querySelector("#graphicsSlideRight");
+const graphicsRightSymbol = document.querySelector("#graphicsSlideRight i");
+let graphicsCounter = 0;
+const graphicsSlideWidth = graphicsSlider.clientWidth / graphicsSlides.length;
+graphicsSlideLeft.addEventListener("click", () => {
+    if (graphicsCounter > 0) {
+        graphicsSlider.style.transition = "transform 0.4s ease-in-out";
+        graphicsCounter--;
+        graphicsSlider.style.transform = "translateX(" + (-graphicsSlideWidth * graphicsCounter) + "px)";
+    }
+});
+graphicsSlideRight.addEventListener("click", () => {
+    if (graphicsCounter < graphicsSlides.length - 1) {
+        graphicsSlider.style.transition = "transform 0.4s ease-in-out";
+        graphicsCounter++;
+        graphicsSlider.style.transform = "translateX(" + (-graphicsSlideWidth * graphicsCounter) + "px)";
+    }
+});
+graphicsSlider.addEventListener("transitionend", () => {
+    if (graphicsCounter != 0 && graphicsCounter != graphicsSlides.length - 1) {
+        graphicsLeftSymbol.classList.remove("inactive");
+        graphicsRightSymbol.classList.remove("inactive");
+        graphicsSlideLeft.style.pointerEvents = "auto";
+        graphicsSlideRight.style.pointerEvents = "auto";
+    } else if (graphicsCounter == 0) {
+        graphicsLeftSymbol.classList.add("inactive");
+        graphicsRightSymbol.classList.remove("inactive");
+        graphicsSlideLeft.style.pointerEvents = "none";
+        graphicsSlideRight.style.pointerEvents = "auto";
+    } else if (graphicsCounter == graphicsSlides.length - 1) {
+        graphicsRightSymbol.classList.add("inactive");
+        graphicsLeftSymbol.classList.remove("inactive");
+        graphicsSlideLeft.style.pointerEvents = "auto";
+        graphicsSlideRight.style.pointerEvents = "none";
+    }
+});
 
