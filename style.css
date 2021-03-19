@@ -242,7 +242,6 @@ body {
 }
 
 .hamburger:hover .burger-line {
-  width: 30px;
   background: #255809;
 }
 
@@ -276,6 +275,8 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   list-style: none;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .page-link {
@@ -290,11 +291,84 @@ body {
 
 @media screen and (max-width: 760px) {
   .site-pages {
-    display: none;
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    position: absolute;
+    top: 10vh;
+    right: -5vw;
+    width: 200px;
+    height: 200px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background: url(./img/BluejayBackground.jpg);
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+  .site-page {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .site-page::after {
+    content: "";
+    height: 1px;
+    width: 100%;
+    background: -webkit-gradient(linear, left top, right top, from(#255809), to(#b4fa04));
+    background: linear-gradient(90deg, #255809, #b4fa04);
+    z-index: 100;
+    position: absolute;
+    bottom: 0;
+  }
+  .page-link {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: calc(200px/4);
+    background: white;
+    -webkit-transition: all 0.1s ease;
+    transition: all 0.1s ease;
+  }
+  .page-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
   }
   .hamburger {
     display: block;
   }
+}
+
+.active-burger .burger-line {
+  width: 30px;
+}
+
+.active-site-pages {
+  opacity: 1;
+  pointer-events: all;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
 }
 
 .contact-jump {
@@ -869,6 +943,7 @@ body {
   color: white;
   text-decoration: none;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 .email-btn i {
