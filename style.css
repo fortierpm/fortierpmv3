@@ -331,16 +331,23 @@ body {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    font-weight: 500;
   }
   .site-page::after {
     content: "";
-    height: 1px;
-    width: 100%;
+    height: 1.5px;
+    width: 75%;
     background: -webkit-gradient(linear, left top, right top, from(#255809), to(#b4fa04));
     background: linear-gradient(90deg, #255809, #b4fa04);
     z-index: 100;
     position: absolute;
     bottom: 0;
+    -webkit-transform: translateY(50%);
+            transform: translateY(50%);
+    border-radius: 10px;
+  }
+  .site-page:last-of-type::after {
+    display: none;
   }
   .page-link {
     width: 100%;
@@ -851,6 +858,46 @@ body {
 /** TRANSITION 3 */
 .transition-3 {
   background-image: url(./img/BeeFlowerTransition.jpg);
+}
+
+/** GENERAL SECTIONS MEDIA QUERIES */
+@media screen and (max-width: 760px) {
+  .photos,
+  .graphics,
+  .web-projects {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: "info" "carousel";
+    padding: 0 2%;
+  }
+  .section-info {
+    padding: 50px 10% 0;
+  }
+  .section-heading {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .section-heading h2,
+  .section-heading p {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .full-page-link {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .section-nav {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .carousel {
+    height: 500px;
+    padding: 50px 0;
+  }
 }
 
 /*! END-OF-PAGE GROUP STYLES */
