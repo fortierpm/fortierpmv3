@@ -1,3 +1,16 @@
+/******************************
+Styles for the website are
+originally written in SCSS and
+then converted (compiled) into
+the plain CSS you see here.
+This is done for ease of
+writing and organizing and for
+SCSS's built-in optimization
+and accessability compiling
+features for stable styling
+across many different
+browsers.
+******************************/
 /** VARIABLES */
 /** MIXINS */
 /** ALL STYLES  */
